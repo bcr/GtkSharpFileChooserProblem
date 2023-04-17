@@ -28,6 +28,13 @@ namespace GtkSharpFileChooserProblem
 
         private void Button1_Clicked(object sender, EventArgs a)
         {
+            var fileChooserDialog = new FileChooserDialog("Choose ", this, FileChooserAction.Open, "Cancel", ResponseType.Cancel, "Open", ResponseType.Accept);
+
+            if (fileChooserDialog.Run() == (int) ResponseType.Accept)
+            {
+                Console.WriteLine(fileChooserDialog.Filename);
+            }
+
             _counter++;
             _label1.Text = "Hello World! This button has been clicked " + _counter + " time(s).";
         }
